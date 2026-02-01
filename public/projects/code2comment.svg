@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700" role="img" aria-label="Code-to-Comment cover">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#0b1020" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+    <linearGradient id="accent" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#a78bfa" />
+      <stop offset="100%" stop-color="#818cf8" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="700" fill="url(#bg)" />
+  <circle cx="980" cy="580" r="200" fill="#a78bfa" opacity="0.12" />
+  <circle cx="220" cy="140" r="140" fill="#818cf8" opacity="0.12" />
+  <rect x="80" y="120" width="1040" height="460" rx="28" fill="#0f172a" opacity="0.6" stroke="#334155" />
+  <text x="140" y="220" fill="#e2e8f0" font-size="48" font-family="Inter, Arial, sans-serif" font-weight="700">Code-to-Comment Generator</text>
+  <text x="140" y="280" fill="#94a3b8" font-size="22" font-family="Inter, Arial, sans-serif">LoRA fine-tuning • CodeT5 • BERTScore</text>
+  <g fill="url(#accent)">
+    <rect x="140" y="340" width="120" height="12" rx="6" />
+    <rect x="140" y="370" width="260" height="12" rx="6" opacity="0.7" />
+    <rect x="140" y="400" width="360" height="12" rx="6" opacity="0.5" />
+  </g>
+  <g>
+    <rect x="720" y="310" width="320" height="220" rx="20" fill="#111827" stroke="#1f2937" />
+    <rect x="760" y="350" width="220" height="14" rx="7" fill="#334155" />
+    <rect x="760" y="380" width="200" height="12" rx="6" fill="#1f2937" />
+    <rect x="760" y="410" width="240" height="12" rx="6" fill="#1f2937" />
+  </g>
+  <text x="140" y="520" fill="#c4b5fd" font-size="16" font-family="Inter, Arial, sans-serif">21K samples • Parameter-efficient training • 0.73 BERTScore F1</text>
+</svg>
