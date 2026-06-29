@@ -16,6 +16,7 @@ type Project = {
   title: string;
   description: string;
   badge?: string;
+  metrics: string[];
   architecture: string[];
   tags: string[];
   categories: string[];
@@ -29,6 +30,7 @@ const projects: Project[] = [
     title: 'VersionPilot - AI Dependency Migration Platform',
     description: 'Agentic AI platform that analyzes Python repositories for dependency upgrade risks, deprecated API usage, and source-linked migration plans.',
     badge: 'Featured AI Agent Project',
+    metrics: ['100% precision', '96.7% recall', '0.98 F1', '10/10 failure scenarios handled'],
     architecture: [
       '6-stage LangGraph workflow with tool calling, AST scanning, release-note extraction, and critic validation.',
       'Confidence scoring and provenance tracking prevent misleading migration recommendations during failure scenarios.',
@@ -41,6 +43,7 @@ const projects: Project[] = [
   {
     title: 'Role-Based Access Control (RBAC) Chatbot',
     description: 'RBAC-enforced RAG chatbot deployed on Google Cloud Run, preventing cross-role document leakage with metadata-filtered retrieval.',
+    metrics: ['22% higher context recall', '2.5x answer relevancy', '<3s p95 latency', '0.87+ faithfulness'],
     architecture: [
       'Metadata-filtered retrieval enforces department-level access across five roles.',
       'Hybrid retrieval, hierarchical chunking, MLflow tracking, and RAGAS evaluation improve answer quality.',
@@ -53,6 +56,7 @@ const projects: Project[] = [
   {
     title: 'Safe Space Agentic AI Assistant',
     description: 'Tool-augmented assistant with agentic workflows, crisis detection, therapist recommendations, and external service integrations.',
+    metrics: ['Agentic routing', 'Crisis detection', 'Therapist discovery', 'SMS integration'],
     architecture: [
       'ReAct-style agent routes between support responses, crisis checks, and external tools.',
       'FastAPI backend integrates Twilio and Google Maps for deployable assistant workflows.',
@@ -65,6 +69,7 @@ const projects: Project[] = [
   {
     title: 'Code-to-Comment Generator',
     description: 'Code-to-docstring generator fine-tuned on CodeSearchNet with LoRA, achieving strong BERTScore gains and parameter efficiency.',
+    metrics: ['21K samples', '0.73 BERTScore F1', '+15% over base', '95% fewer trainable params'],
     architecture: [
       'Fine-tuned CodeT5 with LoRA on cleaned CodeSearchNet samples for parameter-efficient generation.',
       'AST parsing removes in-code comments to reduce training-target leakage and improve evaluation quality.',
@@ -77,6 +82,7 @@ const projects: Project[] = [
   {
     title: 'A/B Experimentation Framework',
     description: 'Product analytics framework for 200K users, validating traffic allocation and measuring conversion, revenue lift, and heterogeneous treatment effects.',
+    metrics: ['200K users', '10.4% revenue lift', '1.1% conversion lift', '95% bootstrap CI'],
     architecture: [
       'Validates sample-ratio mismatch, conversion lift, and revenue movement with statistical tests.',
       'Uses bootstrap intervals and segment diagnostics to identify rollout strategy by cohort.',
@@ -89,6 +95,7 @@ const projects: Project[] = [
   {
     title: 'Customer Segmentation with RFM & Clustering',
     description: 'Two-stage customer segmentation over 400K+ transactions, identifying high-value cohorts and estimating campaign ROI with profit simulation.',
+    metrics: ['400K+ transactions', '11% customers drive 60% revenue', '29% clustering lift', '11.6x ROI case'],
     architecture: [
       'Segments customers with RFM features, clustering, and feature ablation for cleaner cohort separation.',
       'Scenario-based profit simulation estimates campaign ROI and prioritizes high-impact customer groups.',
@@ -160,7 +167,7 @@ export const Projects = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="flex flex-col bg-card rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-border group min-h-[500px]"
+              className="flex flex-col bg-card rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-border group min-h-[620px]"
               style={{ boxShadow: '0 8px 32px 0 hsl(var(--card) / 0.16)' }}
             >
               <div className="relative w-full aspect-[4/2.2] bg-secondary overflow-hidden">
@@ -177,12 +184,22 @@ export const Projects = () => {
                     {project.badge}
                   </span>
                 )}
-                <h3 className="font-display font-bold text-xl lg:text-2xl mb-2 group-hover:text-primary transition-colors line-clamp-2">
+                <h3 className="font-display font-bold text-xl lg:text-2xl mb-2 group-hover:text-primary transition-colors">
                   {project.title}
                 </h3>
-                <p className="text-muted-foreground mb-4 leading-normal line-clamp-4">
+                <p className="text-muted-foreground mb-4 leading-normal">
                   {project.description}
                 </p>
+                <div className="mb-5 grid grid-cols-2 gap-2">
+                  {project.metrics.map((metric) => (
+                    <span
+                      key={metric}
+                      className="rounded-lg border border-border/60 bg-secondary/30 px-3 py-2 text-xs font-medium text-foreground"
+                    >
+                      {metric}
+                    </span>
+                  ))}
+                </div>
                 <ul className="mb-5 space-y-2">
                   {project.architecture.map((point) => (
                     <li key={point} className="flex gap-2 text-sm leading-relaxed text-muted-foreground">

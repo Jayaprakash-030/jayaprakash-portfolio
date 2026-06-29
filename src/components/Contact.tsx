@@ -3,32 +3,36 @@ import { useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
 import { Mail, Send, MapPin, Linkedin, Github, Phone } from 'lucide-react';
 import { toast } from '@/hooks/use-toast';
-import emailjs from '@emailjs/browser';
 
 const CONTACT_EMAIL = 'jayaprakashguntumani@gmail.com';
-const EMAILJS_CONFIG = {
-  serviceId: 'service_rus0kuj',
-  templateId: 'template_tlvoipb',
-  publicKey: 'GucQZNTsN9ZVLCPg7',
-};
 
-const getEmailErrorMessage = (error: unknown) => {
-  if (error && typeof error === 'object') {
-    const maybeError = error as { text?: unknown; message?: unknown; status?: unknown };
-    if (typeof maybeError.text === 'string') return maybeError.text;
-    if (typeof maybeError.message === 'string') return maybeError.message;
-    if (typeof maybeError.status === 'number') return `Email service returned status ${maybeError.status}.`;
-  }
+const buildMailtoLink = ({
+  fromName,
+  fromEmail,
+  subject,
+  message,
+}: {
+  fromName: string;
+  fromEmail: string;
+  subject: string;
+  message: string;
+}) => {
+  const emailSubject = subject || 'Portfolio inquiry';
+  const emailBody = [
+    message,
+    '',
+    '---',
+    `Name: ${fromName}`,
+    `Email: ${fromEmail}`,
+  ].join('\n');
 
-  return 'Something went wrong with the email service.';
+  return `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
 };
 
 export const Contact = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<{
-    type: 'success' | 'error';
     message: string;
   } | null>(null);
 
@@ -40,57 +44,16 @@ export const Contact = () => {
     const fromEmail = String(formData.get('from_email') || '').trim();
     const subject = String(formData.get('subject') || '').trim();
     const message = String(formData.get('message') || '').trim();
+    const mailtoLink = buildMailtoLink({ fromName, fromEmail, subject, message });
 
-    setIsSubmitting(true);
-    setSubmitStatus(null);
-
-    try {
-      const result = await emailjs.send(
-        EMAILJS_CONFIG.serviceId,
-        EMAILJS_CONFIG.templateId,
-        {
-          from_name: fromName,
-          from_email: fromEmail,
-          reply_to: fromEmail,
-          name: fromName,
-          email: fromEmail,
-          subject,
-          title: subject,
-          message,
-          to_email: CONTACT_EMAIL,
-        },
-        { publicKey: EMAILJS_CONFIG.publicKey }
-      );
-
-      if (result.text === 'OK') {
-        const successMessage = "Thank you for reaching out. I'll get back to you soon.";
-        setSubmitStatus({
-          type: 'success',
-          message: successMessage,
-        });
-        toast({
-          title: "Message sent!",
-          description: successMessage,
-        });
-        form.reset();
-      } else {
-        throw new Error(`Unexpected EmailJS response: ${result.text}`);
-      }
-    } catch (error) {
-      const errorMessage = getEmailErrorMessage(error);
-      setSubmitStatus({
-        type: 'error',
-        message: `${errorMessage} Please email me directly at ${CONTACT_EMAIL}.`,
-      });
-      toast({
-        title: "Error sending message",
-        description: `Please email me directly at ${CONTACT_EMAIL}.`,
-        variant: "destructive",
-      });
-      console.error('EmailJS Error:', error);
-    } finally {
-      setIsSubmitting(false);
-    }
+    setSubmitStatus({
+      message: `Your email app opened with a draft addressed to ${CONTACT_EMAIL}. Please review and send it there.`,
+    });
+    toast({
+      title: "Email draft opened",
+      description: `Please send the prefilled email to ${CONTACT_EMAIL}.`,
+    });
+    window.location.href = mailtoLink;
   };
 
   return (
@@ -243,20 +206,13 @@ export const Contact = () => {
 
                 <button
                   type="submit"
-                  disabled={isSubmitting}
-                  className="btn-primary w-full disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="btn-primary w-full"
                 >
-                  {isSubmitting ? (
-                    'Sending...'
-                  ) : (
-                    <>
-                      <Send size={18} />
-                      Send Message
-                    </>
-                  )}
+                  <Send size={18} />
+                  Open Email Draft
                 </button>
                 <a
-                  href={`mailto:${CONTACT_EMAIL}`}
+                  href={`mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('Portfolio inquiry')}`}
                   className="btn-secondary w-full text-sm"
                 >
                   <Mail size={18} />
@@ -264,9 +220,7 @@ export const Contact = () => {
                 </a>
                 {submitStatus && (
                   <p
-                    className={`text-sm leading-relaxed ${
-                      submitStatus.type === 'success' ? 'text-primary' : 'text-destructive'
-                    }`}
+                    className="text-sm leading-relaxed text-primary"
                     role="status"
                   >
                     {submitStatus.message}
