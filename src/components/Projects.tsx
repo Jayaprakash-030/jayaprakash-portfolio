@@ -12,10 +12,27 @@ const categories = [
   'Data Science',
 ];
 
-const projects = [
+type Project = {
+  title: string;
+  description: string;
+  badge?: string;
+  architecture: string[];
+  tags: string[];
+  categories: string[];
+  github: string;
+  live?: string;
+  image: string;
+};
+
+const projects: Project[] = [
   {
     title: 'VersionPilot - AI Dependency Migration Platform',
     description: 'Agentic AI platform that analyzes Python repositories for dependency upgrade risks, deprecated API usage, and source-linked migration plans.',
+    badge: 'Featured AI Agent Project',
+    architecture: [
+      '6-stage LangGraph workflow with tool calling, AST scanning, release-note extraction, and critic validation.',
+      'Confidence scoring and provenance tracking prevent misleading migration recommendations during failure scenarios.',
+    ],
     tags: ['LangGraph', 'Tool Calling', 'AST Parsing', 'Structured Outputs', 'LLM Evaluation'],
     categories: ['Agentic AI', 'ML Systems'],
     github: 'https://github.com/Jayaprakash-030/VersionPilot',
@@ -24,6 +41,10 @@ const projects = [
   {
     title: 'Role-Based Access Control (RBAC) Chatbot',
     description: 'RBAC-enforced RAG chatbot deployed on Google Cloud Run, preventing cross-role document leakage with metadata-filtered retrieval.',
+    architecture: [
+      'Metadata-filtered retrieval enforces department-level access across five roles.',
+      'Hybrid retrieval, hierarchical chunking, MLflow tracking, and RAGAS evaluation improve answer quality.',
+    ],
     tags: ['FastAPI', 'LangChain', 'Gemini', 'ChromaDB', 'RAGAS', 'GCP'],
     categories: ['RAG Systems', 'ML Systems'],
     github: 'https://github.com/Jayaprakash-030/ds-rpc-01',
@@ -32,6 +53,10 @@ const projects = [
   {
     title: 'Safe Space Agentic AI Assistant',
     description: 'Tool-augmented assistant with agentic workflows, crisis detection, therapist recommendations, and external service integrations.',
+    architecture: [
+      'ReAct-style agent routes between support responses, crisis checks, and external tools.',
+      'FastAPI backend integrates Twilio and Google Maps for deployable assistant workflows.',
+    ],
     tags: ['LangGraph', 'ReAct', 'Twilio', 'Google Maps', 'FastAPI', 'LLM'],
     categories: ['Agentic AI', 'ML Systems'],
     github: 'https://github.com/Jayaprakash-030/safespace-ai-agent',
@@ -40,6 +65,10 @@ const projects = [
   {
     title: 'Code-to-Comment Generator',
     description: 'Code-to-docstring generator fine-tuned on CodeSearchNet with LoRA, achieving strong BERTScore gains and parameter efficiency.',
+    architecture: [
+      'Fine-tuned CodeT5 with LoRA on cleaned CodeSearchNet samples for parameter-efficient generation.',
+      'AST parsing removes in-code comments to reduce training-target leakage and improve evaluation quality.',
+    ],
     tags: ['LoRA', 'CodeT5', 'HuggingFace', 'BERTScore', 'NLP'],
     categories: ['LLM Fine-Tuning'],
     github: 'https://github.com/Jayaprakash-030/code2comment',
@@ -48,6 +77,10 @@ const projects = [
   {
     title: 'A/B Experimentation Framework',
     description: 'Product analytics framework for 200K users, validating traffic allocation and measuring conversion, revenue lift, and heterogeneous treatment effects.',
+    architecture: [
+      'Validates sample-ratio mismatch, conversion lift, and revenue movement with statistical tests.',
+      'Uses bootstrap intervals and segment diagnostics to identify rollout strategy by cohort.',
+    ],
     tags: ['A/B Testing', 'Bootstrap CI', 'Hypothesis Testing', 'Product Analytics', 'Python'],
     categories: ['Data Science'],
     github: 'https://github.com/Jayaprakash-030/ab-experimentation-framework-for-product-analytics',
@@ -56,6 +89,10 @@ const projects = [
   {
     title: 'Customer Segmentation with RFM & Clustering',
     description: 'Two-stage customer segmentation over 400K+ transactions, identifying high-value cohorts and estimating campaign ROI with profit simulation.',
+    architecture: [
+      'Segments customers with RFM features, clustering, and feature ablation for cleaner cohort separation.',
+      'Scenario-based profit simulation estimates campaign ROI and prioritizes high-impact customer groups.',
+    ],
     tags: ['RFM', 'Clustering', 'Customer Analytics', 'ROI Modeling', 'Python'],
     categories: ['Data Science'],
     github: 'https://github.com/Jayaprakash-030/OnlineRetailSales',
@@ -135,12 +172,25 @@ export const Projects = () => {
                 />
               </div>
               <div className="flex flex-col flex-1 px-6 pt-6 pb-7">
+                {project.badge && (
+                  <span className="mb-3 w-fit rounded-full border border-accent/40 bg-accent/10 px-3 py-1 text-xs font-semibold text-accent">
+                    {project.badge}
+                  </span>
+                )}
                 <h3 className="font-display font-bold text-xl lg:text-2xl mb-2 group-hover:text-primary transition-colors line-clamp-2">
                   {project.title}
                 </h3>
                 <p className="text-muted-foreground mb-4 leading-normal line-clamp-4">
                   {project.description}
                 </p>
+                <ul className="mb-5 space-y-2">
+                  {project.architecture.map((point) => (
+                    <li key={point} className="flex gap-2 text-sm leading-relaxed text-muted-foreground">
+                      <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary/70" />
+                      <span>{point}</span>
+                    </li>
+                  ))}
+                </ul>
                 <div className="flex flex-wrap gap-2 mb-5">
                   {project.tags.map((tag) => (
                     <span key={tag} className="text-xs px-3 py-1 rounded-full bg-primary/10 text-primary font-medium">

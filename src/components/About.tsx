@@ -71,7 +71,10 @@ export const About = () => {
                 I’m an <span className="text-foreground font-medium">AI Engineer</span> with 3 years of experience designing, deploying, and operating production ML systems across healthcare and energy. My strongest work is in <span className="text-primary font-medium">agentic LLM applications</span>, RAG pipelines, real-time inference, backend APIs, and ML infrastructure.
               </p>
               <p>
-                I focus on end-to-end AI delivery: model and retrieval design, evaluation, API development, deployment, observability, and failure-safe production behavior. I completed my MS in Engineering Data Science at the University of Houston and am targeting AI Engineer roles in the US.
+                I focus on end-to-end AI delivery: model and retrieval design, evaluation, API development, deployment, observability, and failure-safe production behavior. I completed my MS in Engineering Data Science at the University of Houston and am targeting AI Engineer, LLM Engineer, and ML Engineer roles in the US.
+              </p>
+              <p>
+                The work I want to do next sits at the intersection of LLM product engineering and ML systems: agents that use tools reliably, retrieval systems that are evaluated rigorously, and inference services that hold up in production.
               </p>
             </div>
           </motion.div>

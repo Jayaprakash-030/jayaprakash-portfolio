@@ -3,6 +3,13 @@ import { ArrowDown, Github, Linkedin, Mail, Download } from 'lucide-react';
 import { TypeWriter } from './TypeWriter';
 import heroBg from '@/assets/hero-bg.png';
 
+const impactStats = [
+  { value: '3 yrs', label: 'Production ML' },
+  { value: 'RAG', label: 'Retrieval systems' },
+  { value: 'Agents', label: 'LangGraph workflows' },
+  { value: 'MS', label: 'Engineering Data Science' },
+];
+
 export const Hero = () => {
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
@@ -79,6 +86,28 @@ export const Hero = () => {
             <br /><br />
             AI Engineer with experience designing, deploying, and operating production machine learning and LLM systems. I build agentic AI applications, RAG pipelines, fine-tuned language models, and real-time inference services that move from prototype to production.
           </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.55 }}
+            className="mb-8 w-full max-w-xl"
+          >
+            <p className="mb-4 text-sm font-medium text-primary">
+              Open to AI Engineer, LLM Engineer, and ML Engineer roles in the US
+            </p>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+              {impactStats.map((stat) => (
+                <div
+                  key={stat.label}
+                  className="rounded-xl border border-border/60 bg-card/50 px-4 py-3 backdrop-blur-sm"
+                >
+                  <p className="font-display text-lg font-bold text-foreground">{stat.value}</p>
+                  <p className="text-xs text-muted-foreground">{stat.label}</p>
+                </div>
+              ))}
+            </div>
+          </motion.div>
 
           {/* Social Links */}
           <motion.div
