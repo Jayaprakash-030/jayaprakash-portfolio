@@ -4,26 +4,36 @@ import { useRef, useState } from 'react';
 import { ExternalLink, Github, ChevronRight } from 'lucide-react';
 
 const categories = [
-  '🎯 All Projects',
-  '🤖 GenAI & RAG',
-  '🧠 LLM Fine-Tuning',
-  '⚙️ ML Systems',
+  'All Projects',
+  'Agentic AI',
+  'RAG Systems',
+  'LLM Fine-Tuning',
+  'ML Systems',
+  'Data Science',
 ];
 
 const projects = [
   {
+    title: 'VersionPilot - AI Dependency Migration Platform',
+    description: 'Agentic AI platform that analyzes Python repositories for dependency upgrade risks, deprecated API usage, and source-linked migration plans.',
+    tags: ['LangGraph', 'Tool Calling', 'AST Parsing', 'Structured Outputs', 'LLM Evaluation'],
+    categories: ['Agentic AI', 'ML Systems'],
+    github: 'https://github.com/Jayaprakash-030/VersionPilot',
+    image: '/projects/versionpilot.svg',
+  },
+  {
     title: 'Role-Based Access Control (RBAC) Chatbot',
-    description: 'RBAC-enforced RAG chatbot deployed on Google Cloud Run, enabling department-specific knowledge access with optimized multi-hop reasoning.',
-    tags: ['FastAPI', 'LangChain', 'Gemini', 'ChromaDB', 'RAG', 'GCP'],
-    categories: ['🤖 GenAI & RAG', '⚙️ ML Systems'],
+    description: 'RBAC-enforced RAG chatbot deployed on Google Cloud Run, preventing cross-role document leakage with metadata-filtered retrieval.',
+    tags: ['FastAPI', 'LangChain', 'Gemini', 'ChromaDB', 'RAGAS', 'GCP'],
+    categories: ['RAG Systems', 'ML Systems'],
     github: 'https://github.com/Jayaprakash-030/ds-rpc-01',
     image: '/projects/rbac-chatbot.svg',
   },
   {
     title: 'Safe Space Agentic AI Assistant',
-    description: 'Agentic mental health assistant with tool-augmented workflows, crisis detection, and therapist recommendations.',
+    description: 'Tool-augmented assistant with agentic workflows, crisis detection, therapist recommendations, and external service integrations.',
     tags: ['LangGraph', 'ReAct', 'Twilio', 'Google Maps', 'FastAPI', 'LLM'],
-    categories: ['🤖 GenAI & RAG', '⚙️ ML Systems'],
+    categories: ['Agentic AI', 'ML Systems'],
     github: 'https://github.com/Jayaprakash-030/safespace-ai-agent',
     image: '/projects/safe-space.svg',
   },
@@ -31,9 +41,25 @@ const projects = [
     title: 'Code-to-Comment Generator',
     description: 'Code-to-docstring generator fine-tuned on CodeSearchNet with LoRA, achieving strong BERTScore gains and parameter efficiency.',
     tags: ['LoRA', 'CodeT5', 'HuggingFace', 'BERTScore', 'NLP'],
-    categories: ['🧠 LLM Fine-Tuning'],
+    categories: ['LLM Fine-Tuning'],
     github: 'https://github.com/Jayaprakash-030/code2comment',
     image: '/projects/code2comment.svg',
+  },
+  {
+    title: 'A/B Experimentation Framework',
+    description: 'Product analytics framework for 200K users, validating traffic allocation and measuring conversion, revenue lift, and heterogeneous treatment effects.',
+    tags: ['A/B Testing', 'Bootstrap CI', 'Hypothesis Testing', 'Product Analytics', 'Python'],
+    categories: ['Data Science'],
+    github: 'https://github.com/Jayaprakash-030/ab-experimentation-framework-for-product-analytics',
+    image: '/projects/ab-experimentation.svg',
+  },
+  {
+    title: 'Customer Segmentation with RFM & Clustering',
+    description: 'Two-stage customer segmentation over 400K+ transactions, identifying high-value cohorts and estimating campaign ROI with profit simulation.',
+    tags: ['RFM', 'Clustering', 'Customer Analytics', 'ROI Modeling', 'Python'],
+    categories: ['Data Science'],
+    github: 'https://github.com/Jayaprakash-030/OnlineRetailSales',
+    image: '/projects/customer-segmentation.svg',
   },
 ];
 
@@ -41,10 +67,10 @@ export const Projects = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
   const [showAll, setShowAll] = useState(false);
-  const [activeCategory, setActiveCategory] = useState('🎯 All Projects');
+  const [activeCategory, setActiveCategory] = useState('All Projects');
 
   const filteredProjects = projects.filter(project =>
-    activeCategory === '🎯 All Projects' || project.categories.includes(activeCategory)
+    activeCategory === 'All Projects' || project.categories.includes(activeCategory)
   );
 
   const displayedProjects = showAll ? filteredProjects : filteredProjects.slice(0, 6);
@@ -62,7 +88,7 @@ export const Projects = () => {
             Featured <span className="gradient-text">Projects</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            A selection of my recent work in GenAI, RAG systems, and production ML
+            Selected work across agentic AI, RAG systems, LLM fine-tuning, and production ML infrastructure
           </p>
         </motion.div>
 

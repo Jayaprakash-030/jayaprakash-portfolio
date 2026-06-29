@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700" role="img" aria-label="VersionPilot AI dependency migration platform cover">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#08111f" />
+      <stop offset="100%" stop-color="#172554" />
+    </linearGradient>
+    <linearGradient id="line" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0%" stop-color="#22d3ee" />
+      <stop offset="100%" stop-color="#f59e0b" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="700" fill="url(#bg)" />
+  <rect x="82" y="92" width="1036" height="516" rx="30" fill="#0f172a" opacity="0.82" stroke="#334155" />
+  <text x="140" y="190" fill="#f8fafc" font-size="50" font-family="Inter, Arial, sans-serif" font-weight="700">VersionPilot</text>
+  <text x="140" y="245" fill="#94a3b8" font-size="23" font-family="Inter, Arial, sans-serif">AI dependency migration planning for Python repositories</text>
+  <g fill="none" stroke="url(#line)" stroke-width="8" stroke-linecap="round">
+    <path d="M168 390 C270 310, 350 450, 460 360 S650 330, 745 410 S900 475, 1028 340" />
+  </g>
+  <g font-family="Inter, Arial, sans-serif">
+    <rect x="140" y="305" width="250" height="64" rx="14" fill="#111827" stroke="#1f2937" />
+    <text x="166" y="344" fill="#67e8f9" font-size="19" font-weight="700">Repo scan</text>
+    <rect x="475" y="305" width="250" height="64" rx="14" fill="#111827" stroke="#1f2937" />
+    <text x="501" y="344" fill="#fbbf24" font-size="19" font-weight="700">Risk analysis</text>
+    <rect x="810" y="305" width="250" height="64" rx="14" fill="#111827" stroke="#1f2937" />
+    <text x="836" y="344" fill="#67e8f9" font-size="19" font-weight="700">Migration plan</text>
+  </g>
+  <g fill="#334155">
+    <rect x="140" y="498" width="420" height="12" rx="6" />
+    <rect x="140" y="528" width="310" height="12" rx="6" opacity="0.7" />
+    <rect x="650" y="498" width="360" height="12" rx="6" />
+    <rect x="650" y="528" width="260" height="12" rx="6" opacity="0.7" />
+  </g>
+</svg>

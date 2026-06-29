@@ -1,29 +1,32 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
-import { ChevronDown } from 'lucide-react';
+import { Calendar, ChevronDown, MapPin } from 'lucide-react';
 
 const experiences = [
   {
-    title: 'Machine Learning Intern',
+    title: 'Machine Learning Engineer Intern',
     company: 'Tesla Solutions Inc.',
     image: '/teslasolutions.png',
-    period: 'Sep 2025 - Present',
+    period: 'Sep 2025 - May 2026',
     location: 'Houston, TX · On-site',
     description:
-      'Designing and deploying multivariate time-series models for well-state detection across oil & gas operations, with a focus on accuracy, latency, and production readiness.',
+      'Engineering real-time ML inference, backend integration, and production monitoring for well-state prediction in oil and gas operations.',
     achievements: [
-      'Achieved precise well-state detection across 10+ oil & gas wells by training a multivariate ANN-based classifier in PyTorch, reducing transition-period misclassification by 25%.',
-      'Improved overall model accuracy by 20% by engineering choke-based temporal features and augmenting underrepresented transition-state samples.',
-      'Productionized the ML pipeline to reduce batch inference time by over 50% on 100K+ records by migrating preprocessing logic to C# and serving the ANN via ONNX.',
+      'Engineered a real-time production ML inference pipeline in C#/.NET with temporal feature engineering and ONNX Runtime model serving.',
+      'Raised multi-well operational state prediction accuracy from 85% to 95% by training a PyTorch LSTM and deploying it through ONNX Runtime.',
+      'Increased RAMPING-state recall from 71% to 96% by engineering lag, rolling statistics, and choke rate-of-change features.',
+      'Implemented structured .NET logging, Grafana prediction dashboards, inference failure monitoring, and Azure DevOps CI pipelines.',
     ],
     technologies: [
       'PyTorch',
+      'LSTM',
       'Time-Series Modeling',
       'Feature Engineering',
       'ONNX Runtime',
-      'C#',
-      'Python',
+      'C#/.NET',
+      'Grafana',
+      'Azure DevOps',
     ],
   },
   {
@@ -33,21 +36,22 @@ const experiences = [
     period: 'May 2022 - Jul 2024',
     location: 'Hyderabad, India',
     description:
-      'Built scalable ML pipelines and model monitoring systems for healthcare data, improving forecasting accuracy and operational efficiency.',
+      'Built scalable healthcare ML monitoring, backend data services, and production data processing workflows over large datasets.',
     achievements: [
-      'Architected a PySpark-based model monitoring pipeline for drift detection at scale, achieving a 40% processing speedup over Pandas workflows.',
-      'Automated lag selection and seasonality detection with ACF/PACF analysis, reducing manual feature engineering by 25%.',
-      'Improved forecasting accuracy by 20% by combining Prophet features with lagged variables in an XGBoost regression model.',
-      'Reduced report turnaround time by 5× during a Power BI migration by generating JSON configuration via VBA.',
-      'Improved report delivery throughput by 10× with a FastAPI subscription service using a PyArrow-backed Pandas engine.',
+      'Developed a FastAPI backend with scheduled, Dockerized batch services to migrate thousands of Power BI subscription and bursting reports at scale.',
+      'Designed a database-backed tracking layer that recorded per-batch migration status and surfaced recurring report failures.',
+      'Reduced infrastructure costs by $200K annually by migrating data processing to the PySpark Pandas API and processing 5TB+ datasets 40% faster.',
+      'Built automated data drift monitoring pipelines and Grafana dashboards to detect distribution shifts across 20+ production ML models.',
     ],
     technologies: [
       'PySpark',
-      'XGBoost',
-      'Prophet',
       'FastAPI',
+      'Docker',
       'Python',
       'Power BI',
+      'Grafana',
+      'SQL',
+      'Model Monitoring',
     ],
   },
 ];
@@ -134,11 +138,11 @@ export const Experience = () => {
 
                           <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs md:text-sm text-muted-foreground">
                             <span className="flex items-center gap-1.5">
-                              📅 {exp.period}
+                              <Calendar size={14} className="text-primary" /> {exp.period}
                             </span>
                             {exp.location && (
                               <span className="flex items-center gap-1.5">
-                                🌍 {exp.location}
+                                <MapPin size={14} className="text-primary" /> {exp.location}
                               </span>
                             )}
                           </div>
@@ -173,7 +177,7 @@ export const Experience = () => {
                             {/* Achievements */}
                             <div className="pt-6">
                               <h5 className="flex items-center gap-2 text-sm font-semibold text-foreground mb-3">
-                                <span className="text-primary">⚡</span> Key Achievements
+                                <span className="w-2 h-2 rounded-full bg-primary" /> Key Achievements
                               </h5>
                               <ul className="space-y-2">
                                 {exp.achievements.map((achievement, i) => (
@@ -188,7 +192,7 @@ export const Experience = () => {
                             {/* Technologies */}
                             <div>
                               <h5 className="flex items-center gap-2 text-sm font-semibold text-foreground mb-3">
-                                <span className="text-primary">💻</span> Technologies Used
+                                <span className="w-2 h-2 rounded-full bg-primary" /> Technologies Used
                               </h5>
                               <div className="flex flex-wrap gap-2">
                                 {exp.technologies.map((tech) => (

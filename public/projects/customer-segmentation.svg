@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700" role="img" aria-label="Customer segmentation project cover">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#12202f" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="700" fill="url(#bg)" />
+  <rect x="82" y="92" width="1036" height="516" rx="30" fill="#0b1220" opacity="0.72" stroke="#334155" />
+  <text x="140" y="190" fill="#f8fafc" font-size="46" font-family="Inter, Arial, sans-serif" font-weight="700">Customer Segmentation</text>
+  <text x="140" y="245" fill="#94a3b8" font-size="23" font-family="Inter, Arial, sans-serif">RFM analysis, clustering, and scenario-based ROI modeling</text>
+  <g opacity="0.95">
+    <circle cx="365" cy="405" r="88" fill="#22d3ee" opacity="0.8" />
+    <circle cx="580" cy="365" r="64" fill="#f59e0b" opacity="0.9" />
+    <circle cx="755" cy="445" r="112" fill="#38bdf8" opacity="0.45" />
+    <circle cx="875" cy="330" r="48" fill="#fbbf24" opacity="0.75" />
+  </g>
+  <g font-family="Inter, Arial, sans-serif" font-weight="700" text-anchor="middle">
+    <text x="365" y="399" fill="#082f49" font-size="28">11%</text>
+    <text x="365" y="431" fill="#082f49" font-size="18">high value</text>
+    <text x="580" y="371" fill="#111827" font-size="24">RFM</text>
+    <text x="755" y="443" fill="#e0f2fe" font-size="30">60%</text>
+    <text x="755" y="477" fill="#e0f2fe" font-size="18">revenue</text>
+  </g>
+  <g fill="#334155">
+    <rect x="140" y="532" width="310" height="12" rx="6" />
+    <rect x="140" y="562" width="420" height="12" rx="6" opacity="0.7" />
+    <rect x="690" y="532" width="330" height="12" rx="6" />
+    <rect x="690" y="562" width="250" height="12" rx="6" opacity="0.7" />
+  </g>
+</svg>

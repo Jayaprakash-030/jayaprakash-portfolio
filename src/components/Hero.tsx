@@ -58,12 +58,12 @@ export const Hero = () => {
           >
             <TypeWriter
               words={[
-                'AI/ML Engineer',
-                'GenAI & RAG Systems',
-                'Time-Series Forecasting',
-                'LLM & Agentic Workflows',
-                'MLOps & Deployment',
-                'PyTorch & FastAPI'
+                'AI Engineer',
+                'Agentic LLM Applications',
+                'RAG Systems & Retrieval',
+                'Production ML Infrastructure',
+                'Real-Time Inference',
+                'LangGraph, FastAPI & PyTorch'
               ]}
               className="text-primary font-semibold"
             />
@@ -75,9 +75,9 @@ export const Hero = () => {
             transition={{ duration: 0.6, delay: 0.5 }}
             className="text-muted-foreground mb-8 max-w-xl leading-relaxed"
           >
-            Based in Houston, TX 🇺🇸.
+            Based in Houston, TX.
             <br /><br />
-            AI/ML engineer with 3+ years of experience building production ML and LLM-based systems across cloud platforms. I specialize in time-series forecasting, RAG pipelines, fine-tuning, and agentic AI workflows that scale into real business impact.
+            AI Engineer with experience designing, deploying, and operating production machine learning and LLM systems. I build agentic AI applications, RAG pipelines, fine-tuned language models, and real-time inference services that move from prototype to production.
           </motion.p>
 
           {/* Social Links */}
@@ -109,8 +109,8 @@ export const Hero = () => {
               View Projects
               <ArrowDown size={18} className="-rotate-90" />
             </a>
-            <a href="/Jayaprakash_Yadav_Guntumani_Resume.pdf"
-              download="Jayaprakash_Yadav_Guntumani_Resume.pdf"
+            <a href="/JayaprakashYadavGuntumani_Resume.pdf"
+              download="JayaprakashYadavGuntumani_Resume.pdf"
               className="btn-secondary flex items-center gap-2"
             >
               Resume

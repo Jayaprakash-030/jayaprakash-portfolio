@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700" role="img" aria-label="A/B experimentation framework cover">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#101827" />
+      <stop offset="100%" stop-color="#1f2937" />
+    </linearGradient>
+    <linearGradient id="bar" x1="0" x2="0" y1="1" y2="0">
+      <stop offset="0%" stop-color="#22d3ee" />
+      <stop offset="100%" stop-color="#f59e0b" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="700" fill="url(#bg)" />
+  <rect x="86" y="86" width="1028" height="528" rx="30" fill="#0b1220" opacity="0.76" stroke="#334155" />
+  <text x="145" y="186" fill="#f8fafc" font-size="48" font-family="Inter, Arial, sans-serif" font-weight="700">A/B Experimentation</text>
+  <text x="145" y="242" fill="#94a3b8" font-size="23" font-family="Inter, Arial, sans-serif">Traffic validation, conversion lift, revenue impact, and segment effects</text>
+  <line x1="170" y1="520" x2="1020" y2="520" stroke="#334155" stroke-width="3" />
+  <line x1="170" y1="335" x2="170" y2="520" stroke="#334155" stroke-width="3" />
+  <g>
+    <rect x="265" y="416" width="112" height="104" rx="10" fill="#22d3ee" opacity="0.85" />
+    <rect x="420" y="372" width="112" height="148" rx="10" fill="url(#bar)" />
+    <rect x="720" y="432" width="112" height="88" rx="10" fill="#22d3ee" opacity="0.7" />
+    <rect x="875" y="342" width="112" height="178" rx="10" fill="#f59e0b" opacity="0.9" />
+  </g>
+  <g font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700">
+    <text x="286" y="558" fill="#cbd5e1">Control</text>
+    <text x="446" y="558" fill="#cbd5e1">Variant</text>
+    <text x="731" y="558" fill="#cbd5e1">Returning</text>
+    <text x="900" y="558" fill="#cbd5e1">New</text>
+  </g>
+  <text x="145" y="620" fill="#7dd3fc" font-size="17" font-family="Inter, Arial, sans-serif">SRM p=0.607 | revenue lift 10.4% | bootstrap confidence intervals</text>
+</svg>

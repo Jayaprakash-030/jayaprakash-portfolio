@@ -6,33 +6,33 @@ import { TrendingUp, Brain, Code2, Trophy, Zap, Users } from 'lucide-react';
 const highlights = [
   {
     icon: Brain,
-    title: 'GenAI & RAG Systems',
-    description: 'Designing RAG pipelines, fine-tuning, and agentic workflows for real-world deployment.',
+    title: 'Agentic AI Systems',
+    description: 'Building LangGraph workflows with tool calling, structured outputs, validation, and recovery routing.',
   },
   {
     icon: TrendingUp,
-    title: 'Time-Series Forecasting',
-    description: 'Building multivariate models for forecasting, classification, and anomaly detection.',
+    title: 'RAG & Retrieval',
+    description: 'Designing role-aware retrieval, hybrid search, hierarchical chunking, citations, and RAGAS evaluation.',
   },
   {
     icon: Zap,
-    title: 'Performance Optimization',
-    description: 'Reducing latency and scaling inference with ONNX, feature engineering, and pipeline tuning.',
+    title: 'Low-Latency Inference',
+    description: 'Deploying PyTorch models through ONNX Runtime, FastAPI, Docker, and production backend services.',
   },
   {
     icon: Code2,
-    title: 'Production ML',
-    description: 'Shipping ML systems with FastAPI, MLflow, Docker, and cloud-native workflows.',
+    title: 'ML Infrastructure',
+    description: 'Owning APIs, monitoring, CI/CD, model tracking, and cloud deployments across GCP, AWS, and Azure workflows.',
   },
   {
     icon: Trophy,
-    title: 'Applied Research',
-    description: 'Turning experiments into measurable improvements in accuracy and reliability.',
+    title: 'LLM Evaluation',
+    description: 'Using provenance, confidence scoring, critic validation, MLflow, LangSmith, and deterministic fallbacks.',
   },
   {
     icon: Users,
     title: 'Collaboration',
-    description: 'Partnering across teams to deliver deployable, business-ready AI systems.',
+    description: 'Partnering with engineering and product teams to turn AI prototypes into reliable product capabilities.',
   },
 ];
 
@@ -53,7 +53,7 @@ export const About = () => {
             About <span className="gradient-text">Me</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Building production-ready AI systems that scale beyond notebooks
+            Building production AI systems that move beyond demos and notebooks
           </p>
         </motion.div>
 
@@ -68,10 +68,10 @@ export const About = () => {
             <h3 className="font-display text-xl font-semibold mb-4 gradient-text">Background</h3>
             <div className="space-y-4 text-muted-foreground leading-relaxed">
               <p>
-                I’m an <span className="text-foreground font-medium">AI/ML Engineer</span> with 3+ years of experience building production ML and LLM-based systems across healthcare and energy. I specialize in <span className="text-primary font-medium">time-series forecasting</span>, <span className="text-primary font-medium">RAG pipelines</span>, fine-tuning, and agentic workflows using Python, PyTorch, LangChain, and FastAPI.
+                I’m an <span className="text-foreground font-medium">AI Engineer</span> with 3 years of experience designing, deploying, and operating production ML systems across healthcare and energy. My strongest work is in <span className="text-primary font-medium">agentic LLM applications</span>, RAG pipelines, real-time inference, backend APIs, and ML infrastructure.
               </p>
               <p>
-                My focus is turning research into deployable systems—optimizing latency, improving accuracy, and scaling inference with tools like ONNX, MLflow, and cloud platforms (GCP/AWS). I’m currently pursuing an MS in Engineering Data Science at the University of Houston and actively looking for AI Engineer or Data Scientist roles in the US.
+                I focus on end-to-end AI delivery: model and retrieval design, evaluation, API development, deployment, observability, and failure-safe production behavior. I completed my MS in Engineering Data Science at the University of Houston and am targeting AI Engineer roles in the US.
               </p>
             </div>
           </motion.div>

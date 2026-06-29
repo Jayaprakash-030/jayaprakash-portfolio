@@ -5,34 +5,86 @@ import { Mail, Send, MapPin, Linkedin, Github, Phone } from 'lucide-react';
 import { toast } from '@/hooks/use-toast';
 import emailjs from '@emailjs/browser';
 
+const CONTACT_EMAIL = 'jayaprakashguntumani@gmail.com';
+const EMAILJS_CONFIG = {
+  serviceId: 'service_rus0kuj',
+  templateId: 'template_tlvoipb',
+  publicKey: 'GucQZNTsN9ZVLCPg7',
+};
+
+const getEmailErrorMessage = (error: unknown) => {
+  if (error && typeof error === 'object') {
+    const maybeError = error as { text?: unknown; message?: unknown; status?: unknown };
+    if (typeof maybeError.text === 'string') return maybeError.text;
+    if (typeof maybeError.message === 'string') return maybeError.message;
+    if (typeof maybeError.status === 'number') return `Email service returned status ${maybeError.status}.`;
+  }
+
+  return 'Something went wrong with the email service.';
+};
+
 export const Contact = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<{
+    type: 'success' | 'error';
+    message: string;
+  } | null>(null);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    const fromName = String(formData.get('from_name') || '').trim();
+    const fromEmail = String(formData.get('from_email') || '').trim();
+    const subject = String(formData.get('subject') || '').trim();
+    const message = String(formData.get('message') || '').trim();
+
     setIsSubmitting(true);
+    setSubmitStatus(null);
 
     try {
-      const result = await emailjs.sendForm(
-        'service_rus0kuj',
-        'template_tlvoipb',
-        e.currentTarget,
-        'GucQZNTsN9ZVLCPg7'
+      const result = await emailjs.send(
+        EMAILJS_CONFIG.serviceId,
+        EMAILJS_CONFIG.templateId,
+        {
+          from_name: fromName,
+          from_email: fromEmail,
+          reply_to: fromEmail,
+          name: fromName,
+          email: fromEmail,
+          subject,
+          title: subject,
+          message,
+          to_email: CONTACT_EMAIL,
+        },
+        { publicKey: EMAILJS_CONFIG.publicKey }
       );
 
       if (result.text === 'OK') {
+        const successMessage = "Thank you for reaching out. I'll get back to you soon.";
+        setSubmitStatus({
+          type: 'success',
+          message: successMessage,
+        });
         toast({
           title: "Message sent!",
-          description: "Thank you for reaching out. I'll get back to you soon.",
+          description: successMessage,
         });
-        (e.target as HTMLFormElement).reset();
+        form.reset();
+      } else {
+        throw new Error(`Unexpected EmailJS response: ${result.text}`);
       }
     } catch (error) {
+      const errorMessage = getEmailErrorMessage(error);
+      setSubmitStatus({
+        type: 'error',
+        message: `${errorMessage} Please email me directly at ${CONTACT_EMAIL}.`,
+      });
       toast({
         title: "Error sending message",
-        description: "Something went wrong. Please try again or email me directly.",
+        description: `Please email me directly at ${CONTACT_EMAIL}.`,
         variant: "destructive",
       });
       console.error('EmailJS Error:', error);
@@ -57,7 +109,7 @@ export const Contact = () => {
             Let's <span className="gradient-text">Connect</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Interested in AI/ML roles or collaboration on GenAI systems? I’d love to connect.
+            Interested in AI Engineer roles, production LLM systems, RAG applications, or applied ML platforms? I’d love to connect.
           </p>
         </motion.div>
 
@@ -72,7 +124,7 @@ export const Contact = () => {
 
             <div className="space-y-6">
               <a
-                href="mailto:jayaprakashguntumani@gmail.com"
+                href={`mailto:${CONTACT_EMAIL}`}
                 className="flex items-center gap-4 glass-card p-4 hover:border-primary/30 transition-all duration-300 group"
               >
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
@@ -80,7 +132,7 @@ export const Contact = () => {
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground">Email</p>
-                  <p className="font-medium group-hover:text-primary transition-colors">jayaprakashguntumani@gmail.com</p>
+                  <p className="font-medium group-hover:text-primary transition-colors">{CONTACT_EMAIL}</p>
                 </div>
               </a>
 
@@ -103,7 +155,7 @@ export const Contact = () => {
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground">Location</p>
-                  <p className="font-medium">Houston, TX 🇺🇸</p>
+                  <p className="font-medium">Houston, TX</p>
                 </div>
               </div>
             </div>
@@ -118,7 +170,7 @@ export const Contact = () => {
                 <a href="https://github.com/Jayaprakash-030" target="_blank" rel="noopener noreferrer" className="social-icon">
                   <Github size={20} />
                 </a>
-                <a href="mailto:jayaprakashguntumani@gmail.com" className="social-icon">
+                <a href={`mailto:${CONTACT_EMAIL}`} className="social-icon">
                   <Mail size={20} />
                 </a>
               </div>
@@ -203,6 +255,23 @@ export const Contact = () => {
                     </>
                   )}
                 </button>
+                <a
+                  href={`mailto:${CONTACT_EMAIL}`}
+                  className="btn-secondary w-full text-sm"
+                >
+                  <Mail size={18} />
+                  Email Directly
+                </a>
+                {submitStatus && (
+                  <p
+                    className={`text-sm leading-relaxed ${
+                      submitStatus.type === 'success' ? 'text-primary' : 'text-destructive'
+                    }`}
+                    role="status"
+                  >
+                    {submitStatus.message}
+                  </p>
+                )}
               </div>
             </form>
           </motion.div>

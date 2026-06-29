@@ -4,24 +4,24 @@ import { useRef } from 'react';
 
 const skillCategories = [
   {
-    title: 'AI & LLMs',
-    skills: ['RAG', 'Fine-Tuning', 'Prompt Engineering', 'Agentic Workflows', 'LangChain', 'Vector Databases (FAISS, ChromaDB)'],
+    title: 'AI & LLM Engineering',
+    skills: ['LangGraph', 'LangChain', 'RAG', 'Tool Calling', 'Structured Outputs', 'Prompt Engineering', 'LoRA', 'Fine-Tuning'],
   },
   {
-    title: 'ML & Deep Learning',
-    skills: ['PyTorch', 'Time-Series Modeling', 'Computer Vision', 'NLP', 'Supervised Learning', 'Unsupervised Learning'],
+    title: 'Retrieval & Evaluation',
+    skills: ['Hybrid Retrieval', 'Vector Databases', 'ChromaDB', 'FAISS', 'RAGAS', 'LangSmith', 'MLflow', 'Provenance Tracking'],
   },
   {
-    title: 'Programming & Tools',
-    skills: ['Python', 'SQL', 'C#', 'FastAPI', 'PySpark', 'NumPy', 'Pandas', 'HuggingFace Transformers', 'Git'],
+    title: 'Backend & ML Serving',
+    skills: ['Python', 'FastAPI', 'C#/.NET', 'REST APIs', 'Docker', 'ONNX Runtime', 'PyTorch', 'CI/CD'],
+  },
+  {
+    title: 'ML & Data Systems',
+    skills: ['Time-Series Modeling', 'Classification', 'Feature Engineering', 'PySpark', 'Pandas', 'SQL', 'XGBoost', 'Prophet'],
   },
   {
     title: 'Cloud & MLOps',
-    skills: ['GCP (Vertex AI, Cloud Run)', 'AWS (SageMaker, Lambda)', 'Docker', 'Kubernetes', 'MLflow', 'ONNX Runtime'],
-  },
-  {
-    title: 'Modeling & Analytics',
-    skills: ['XGBoost', 'Prophet', 'Feature Engineering', 'Model Monitoring', 'ACF/PACF', 'Regression'],
+    skills: ['GCP Vertex AI', 'Cloud Run', 'AWS SageMaker', 'AWS Lambda', 'Kubernetes', 'Azure DevOps', 'Grafana', 'Model Monitoring'],
   },
 ];
 
@@ -42,7 +42,7 @@ export const Skills = () => {
             Skills & <span className="gradient-text">Expertise</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Technologies I've worked with in real-world projects and professional environments
+            AI engineering tools I use to build, evaluate, deploy, and monitor production systems
           </p>
         </motion.div>
 

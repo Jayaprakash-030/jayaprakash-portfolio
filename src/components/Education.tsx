@@ -10,11 +10,11 @@ const educationData = [
     location: 'Houston, Texas',
     period: 'Aug 2024 - May 2026',
     logo: 'UH',
-    description: 'GPA: 3.92/4.0. Focused on advanced machine learning, deep learning, and cloud computing for scalable AI systems.',
+    description: 'GPA: 3.967/4.0. Focused on machine learning, statistics, data analysis, and cloud computing for scalable data and AI systems.',
     learnings: [
-      'Natural Language Processing',
-      'Deep Learning for Engineers',
+      'Statistics for Engineers',
       'Machine Learning',
+      'Construction Data Analysis',
       'Introduction to Cloud Computing'
     ]
   },

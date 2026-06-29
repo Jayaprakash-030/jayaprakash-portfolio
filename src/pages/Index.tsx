@@ -12,12 +12,12 @@ import { useEffect } from 'react';
 
 const Index = () => {
   useEffect(() => {
-    document.title = 'Jayaprakash Yadav Guntumani | AI/ML Engineer Portfolio';
+    document.title = 'Jayaprakash Yadav Guntumani | AI Engineer';
 
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
       metaDescription.setAttribute('content',
-        'Portfolio of Jayaprakash Yadav Guntumani - AI/ML Engineer specializing in GenAI, RAG, and time-series forecasting. Based in Houston, TX.'
+        'Portfolio of Jayaprakash Yadav Guntumani - AI Engineer specializing in agentic LLM applications, RAG systems, production ML infrastructure, and real-time inference. Based in Houston, TX.'
       );
     }
   }, []);
