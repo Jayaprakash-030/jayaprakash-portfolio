@@ -5,6 +5,35 @@ import { Calendar, ChevronDown, MapPin } from 'lucide-react';
 
 const experiences = [
   {
+    title: 'AI Engineer Intern',
+    company: 'BalanX Bio',
+    image: '/balanxbio.jpeg',
+    period: 'Jul 2026 - Present',
+    location: 'Remote',
+    description:
+      'Building and deploying a real-time multimodal AI assistant that reads a user’s face, voice and text to understand their emotional state, and running its GPU services on AWS.',
+    achievements: [
+      'Built a real-time multimodal emotion pipeline that scores face, voice and text in parallel, cutting latency from 4.6s to ~1.1s inside a 2.5s real-time budget.',
+      'Gave the LLM assistant memory across sessions with a two-tier store for facts and emotions, cutting memory-related reply delays by over 99%.',
+      'Scaled inference throughput 5x by moving from Redis Pub/Sub to Streams consumer groups, so added workers share the load instead of repeating it.',
+      'Deployed 4 real-time AI services on AWS ECS with a 200+ test CI suite, cutting full-app launch from 40 to 5 minutes.',
+      'Moved conversation history and emotion memory from TinyDB to AWS DynamoDB (2 tables built around 12 access patterns), so any worker can serve any user.',
+    ],
+    technologies: [
+      'AWS ECS',
+      'ECR',
+      'EC2',
+      'Docker',
+      'Redis Streams',
+      'DynamoDB',
+      'GPU Inference',
+      'Multimodal AI',
+      'Moonshine ASR',
+      'MERaLiON',
+      'GitHub Actions',
+    ],
+  },
+  {
     title: 'Machine Learning Engineer Intern',
     company: 'Tesla Solutions Inc.',
     image: '/teslasolutions.png',
@@ -82,7 +111,7 @@ export const Experience = () => {
             Professional <span className="gradient-text">Journey</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            From healthcare to energy, here’s my experience building scalable ML and GenAI systems.
+            From healthcare and energy to real-time multimodal AI, here’s my experience building scalable ML and GenAI systems.
           </p>
         </motion.div>
 

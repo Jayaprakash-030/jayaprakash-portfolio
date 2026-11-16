@@ -8,6 +8,7 @@ const categories = [
   'Agentic AI',
   'RAG Systems',
   'LLM Fine-Tuning',
+  'LLM Inference',
   'ML Systems',
   'Data Science',
 ];
@@ -20,7 +21,8 @@ type Project = {
   architecture: string[];
   tags: string[];
   categories: string[];
-  github: string;
+  github?: string;
+  note?: string;
   live?: string;
   image: string;
 };
@@ -30,7 +32,7 @@ const projects: Project[] = [
     title: 'VersionPilot - AI Dependency Migration Platform',
     description: 'Agentic AI platform that analyzes Python repositories for dependency upgrade risks, deprecated API usage, and source-linked migration plans.',
     badge: 'Featured AI Agent Project',
-    metrics: ['100% precision', '96.7% recall', '0.98 F1', '10/10 failure scenarios handled'],
+    metrics: ['100% precision', '96.7% recall', '0.98 F1 (30-file benchmark)', '10/10 failure scenarios handled'],
     architecture: [
       '6-stage LangGraph workflow with tool calling, AST scanning, release-note extraction, and critic validation.',
       'Confidence scoring and provenance tracking prevent misleading migration recommendations during failure scenarios.',
@@ -39,6 +41,33 @@ const projects: Project[] = [
     categories: ['Agentic AI', 'ML Systems'],
     github: 'https://github.com/Jayaprakash-030/VersionPilot',
     image: '/projects/versionpilot.svg',
+  },
+  {
+    title: 'PagedServe - LLM Inference Engine from Scratch',
+    description: 'LLM serving engine built from scratch on Qwen3-0.6B, with KV caching, continuous batching and paged KV memory, benchmarked on a single T4 GPU.',
+    metrics: ['34x throughput', '23 to 783 tok/s', '93% less queue wait', '45% more requests served'],
+    architecture: [
+      'KV caching plus static batching raised generation throughput 34x on one T4 GPU.',
+      'A continuous-batching scheduler with a paged KV block pool cut request wait time 93% and served 45% more requests on the same GPU memory.',
+    ],
+    tags: ['LLM Inference', 'KV Cache', 'Continuous Batching', 'Paged Attention', 'Qwen3', 'Benchmarking'],
+    categories: ['LLM Inference', 'ML Systems'],
+    github: 'https://github.com/Jayaprakash-030/tiny-inference-engine',
+    image: '/projects/pagedserve.svg',
+  },
+  {
+    title: 'Real-Time Multimodal Emotion Pipeline (BalanX Bio)',
+    description: 'Real-time pipeline that scores a user’s face, voice and text in parallel on GPU and feeds an LLM assistant with cross-session memory, deployed on AWS ECS.',
+    badge: 'Industry Case Study',
+    metrics: ['4.6s to 1.1s latency', '5x throughput', '40 to 5 min deploys', '62% to 88% usable transcripts'],
+    architecture: [
+      'Browser A/V capture over WebRTC, windowing, then Redis Streams consumer groups feeding face, voice and text models in parallel on a GPU.',
+      'LLM replies use a two-tier memory store in DynamoDB, so any worker can serve any user.',
+    ],
+    tags: ['WebRTC', 'Redis Streams', 'AWS ECS', 'DynamoDB', 'GPU Inference', 'Multimodal AI'],
+    categories: ['LLM Inference', 'ML Systems'],
+    note: 'Company work — happy to walk through it in an interview.',
+    image: '/projects/balanx-pipeline.svg',
   },
   {
     title: 'Role-Based Access Control (RBAC) Chatbot',
@@ -216,15 +245,20 @@ export const Projects = () => {
                   ))}
                 </div>
                 <div className="flex gap-4 mt-auto">
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-primary/80 transition-colors"
-                  >
-                    <Github size={18} />
-                    View Code
-                  </a>
+                  {project.github && (
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-primary/80 transition-colors"
+                    >
+                      <Github size={18} />
+                      View Code
+                    </a>
+                  )}
+                  {project.note && (
+                    <span className="text-sm italic text-muted-foreground">{project.note}</span>
+                  )}
                   {project.live && (
                     <a
                       href={project.live}

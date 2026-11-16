@@ -5,7 +5,11 @@ import { useRef } from 'react';
 const skillCategories = [
   {
     title: 'AI & LLM Engineering',
-    skills: ['LangGraph', 'LangChain', 'RAG', 'Tool Calling', 'Structured Outputs', 'Prompt Engineering', 'LoRA', 'Fine-Tuning'],
+    skills: ['LangGraph', 'LangChain', 'RAG', 'Tool Calling', 'Structured Outputs', 'Prompt Engineering', 'LoRA', 'QLoRA', 'Fine-Tuning', 'MCP'],
+  },
+  {
+    title: 'LLM Inference',
+    skills: ['KV Caching', 'Continuous Batching', 'Paged Attention', 'GPU Benchmarking'],
   },
   {
     title: 'Retrieval & Evaluation',
@@ -13,15 +17,15 @@ const skillCategories = [
   },
   {
     title: 'Backend & ML Serving',
-    skills: ['Python', 'FastAPI', 'C#/.NET', 'REST APIs', 'Docker', 'ONNX Runtime', 'PyTorch', 'CI/CD'],
+    skills: ['Python', 'FastAPI', 'C#/.NET', 'REST APIs', 'WebRTC', 'Docker', 'ONNX Runtime', 'PyTorch', 'CI/CD'],
   },
   {
     title: 'ML & Data Systems',
-    skills: ['Time-Series Modeling', 'Classification', 'Feature Engineering', 'PySpark', 'Pandas', 'SQL', 'XGBoost', 'Prophet'],
+    skills: ['Time-Series Modeling', 'Classification', 'Feature Engineering', 'PySpark', 'Pandas', 'SQL', 'PostgreSQL', 'XGBoost', 'Prophet'],
   },
   {
     title: 'Cloud & MLOps',
-    skills: ['GCP Vertex AI', 'Cloud Run', 'AWS SageMaker', 'AWS Lambda', 'Kubernetes', 'Azure DevOps', 'Grafana', 'Model Monitoring'],
+    skills: ['GCP Vertex AI', 'Cloud Run', 'AWS SageMaker', 'AWS Lambda', 'ECS/ECR/EC2', 'CloudFront', 'DynamoDB', 'ElastiCache (Redis Streams)', 'IAM', 'CloudWatch', 'Kubernetes', 'Azure DevOps', 'Grafana', 'Model Monitoring'],
   },
 ];
 

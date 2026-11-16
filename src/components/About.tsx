@@ -68,7 +68,7 @@ export const About = () => {
             <h3 className="font-display text-xl font-semibold mb-4 gradient-text">Background</h3>
             <div className="space-y-4 text-muted-foreground leading-relaxed">
               <p>
-                I’m an <span className="text-foreground font-medium">AI Engineer</span> with 3 years of experience designing, deploying, and operating production ML systems across healthcare and energy. My strongest work is in <span className="text-primary font-medium">agentic LLM applications</span>, RAG pipelines, real-time inference, backend APIs, and ML infrastructure.
+                I’m an <span className="text-foreground font-medium">AI Engineer</span> with 3 years of experience designing, deploying, and operating production ML systems across healthcare, energy, and real-time multimodal AI. My strongest work is in <span className="text-primary font-medium">agentic LLM applications</span>, RAG pipelines, real-time inference, backend APIs, and ML infrastructure.
               </p>
               <p>
                 I focus on end-to-end AI delivery: model and retrieval design, evaluation, API development, deployment, observability, and failure-safe production behavior. I completed my MS in Engineering Data Science at the University of Houston and am targeting AI Engineer, LLM Engineer, and ML Engineer roles in the US.
