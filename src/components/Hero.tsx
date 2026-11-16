@@ -66,10 +66,10 @@ export const Hero = () => {
             <TypeWriter
               words={[
                 'AI Engineer',
+                'LLM Inference & Serving',
                 'Agentic LLM Applications',
                 'RAG Systems & Retrieval',
-                'Production ML Infrastructure',
-                'Real-Time Inference',
+                'Real-Time Multimodal AI',
                 'LangGraph, FastAPI & PyTorch'
               ]}
               className="text-primary font-semibold"
@@ -84,7 +84,7 @@ export const Hero = () => {
           >
             Based in Houston, TX.
             <br /><br />
-            AI Engineer with experience designing, deploying, and operating production machine learning and LLM systems. I build agentic AI applications, RAG pipelines, fine-tuned language models, and real-time inference services that move from prototype to production.
+            AI Engineer building and deploying production LLM systems, from agentic applications and RAG pipelines to inference engines and real-time multimodal services on AWS. I focus on making models fast, measurable, and reliable once they leave the notebook.
           </motion.p>
 
           <motion.div
@@ -94,7 +94,7 @@ export const Hero = () => {
             className="mb-8 w-full max-w-xl"
           >
             <p className="mb-4 text-sm font-medium text-primary">
-              Open to AI Engineer, LLM Engineer, and ML Engineer roles in the US
+              Open to AI Engineer, LLM Engineer, and AI Infrastructure roles in the US
             </p>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
               {impactStats.map((stat) => (

@@ -68,13 +68,13 @@ export const About = () => {
             <h3 className="font-display text-xl font-semibold mb-4 gradient-text">Background</h3>
             <div className="space-y-4 text-muted-foreground leading-relaxed">
               <p>
-                I’m an <span className="text-foreground font-medium">AI Engineer</span> with 3 years of experience designing, deploying, and operating production ML systems across healthcare, energy, and real-time multimodal AI. My strongest work is in <span className="text-primary font-medium">agentic LLM applications</span>, RAG pipelines, real-time inference, backend APIs, and ML infrastructure.
+                I’m an <span className="text-foreground font-medium">AI Engineer</span> currently building a real-time multimodal AI assistant at BalanX Bio, with prior experience shipping production ML systems in healthcare and energy. My strongest work is in <span className="text-primary font-medium">agentic LLM applications</span>, RAG pipelines, LLM inference, and the backend and cloud infrastructure that runs them.
               </p>
               <p>
-                I focus on end-to-end AI delivery: model and retrieval design, evaluation, API development, deployment, observability, and failure-safe production behavior. I completed my MS in Engineering Data Science at the University of Houston and am targeting AI Engineer, LLM Engineer, and ML Engineer roles in the US.
+                I focus on end-to-end AI delivery: model and retrieval design, evaluation, inference optimization, API development, deployment on AWS and GCP, and observability. I completed my MS in Engineering Data Science at the University of Houston (3.967 GPA) and am targeting AI Engineer, LLM Engineer, and AI Infrastructure roles in the US.
               </p>
               <p>
-                The work I want to do next sits at the intersection of LLM product engineering and ML systems: agents that use tools reliably, retrieval systems that are evaluated rigorously, and inference services that hold up in production.
+                What I want to work on next sits where LLM products meet systems engineering: agents that use tools reliably, retrieval that is rigorously evaluated, and inference services built for latency and throughput.
               </p>
             </div>
           </motion.div>
